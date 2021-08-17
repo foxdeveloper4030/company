@@ -1,0 +1,17 @@
+
+<div class="container">
+    <div class="row">
+      {% for img in galleries %}
+        <div class="col-1">
+            <span style="border: 1px solid tomato">
+                {% load admin_tags %}
+                <img  id="myInput" width="100" src="{% getUrl request  %}/{{ img.img }}" style="cursor: pointer" onclick="copyText('imgUrl','{% getUrl request  %}/{{ img.img }}')">
+            </span>
+        </div>
+      {% endfor %}
+    </div>
+    <label>
+        your selected image url:
+    </label>
+    <input type="text" id="imgUrl">
+</div>

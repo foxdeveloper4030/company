@@ -5,13 +5,13 @@ from django.db import models
 
 
 class Project(models.Model):
-    type = [("1",''), ("2","")]
+    type = [(1,"حقیقی"), (2,"حقوقی")]
     state = [(0,'پروژه تعریف شد'), (1, 'پروژه تایید شد'), (2, 'در حال ساخت پروژه'), (3, 'اتمام پروژه'),
              (4, 'پروژه تایید نشد')]
     name = models.CharField(max_length=250)
     title = models.CharField(max_length=250)
     description = models.TextField()
-    type = models.IntegerField(choices=type)
+    type = models.IntegerField(choices=type,default=1)
     order_by_fname = models.CharField(max_length=250)
     order_by_lname = models.CharField(max_length=250)
     address = models.CharField(max_length=250)
@@ -49,3 +49,7 @@ class Pay(models.Model):
 class Release(models.Model):
     project = models.ForeignKey(Project,on_delete=True)
     img = models.ImageField(upload_to='public/img/projects')
+
+    def __str__(self):
+        return self.project.name
+
