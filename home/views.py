@@ -12,10 +12,15 @@ def home(request):
     releases = Release.objects.all()
     categories = Category.objects.all()
     companies = Company.objects.all()
-    contex = {'sliders': sliders, 'about': about,'services':services,'releases':releases,'categories':categories,'companies':companies}
+    contex = {'sliders': sliders, 'about': about, 'services': services, 'releases': releases, 'categories': categories,
+              'companies': companies}
     return render(request, 'home/home.html', contex)
 
 
 def adminGallery(request):
     galleries = Gallery.objects.all()
-    return render(request,'admin/ShowGallery.html',{'galleries':galleries})
+    return render(request, 'admin/ShowGallery.html', {'galleries': galleries})
+
+
+def employment(request):
+    return render(request, 'home/employment.html')
