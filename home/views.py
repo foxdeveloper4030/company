@@ -1,5 +1,5 @@
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
-
 # Create your views here.
 from home.models import Slider, About, Gallery, Service
 from product.models import Release, Category, Company
@@ -23,4 +23,8 @@ def adminGallery(request):
 
 
 def employment(request):
+    if request.method == 'GET':
+         return render(request, 'home/employment.html')
+    if request.method =='POST':
+        return HttpResponse("lkjh")
     return render(request, 'home/employment.html')

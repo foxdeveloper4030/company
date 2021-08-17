@@ -60,3 +60,10 @@ class ServiceAdmin(admin.ModelAdmin):
         js = ('assets/js/ckeditor/ckeditor.js', 'assets/js/ckeditor/ckeditor_init.js')
 
     form = ModelServiceAdminForm
+class Employment(models.Model):
+    fist_name = models.CharField(max_length=250)
+    last_name = models.CharField(max_length=250)
+    email = models.EmailField(max_length=250)
+    phone_number = models.CharField(max_length=250)
+    description = models.TextField()
+
