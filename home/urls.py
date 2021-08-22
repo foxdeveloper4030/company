@@ -7,4 +7,5 @@ urlpatterns = [
     path('admin/gallery/show',adminGallery,name='admin.gallery.get'),
     path('employ/',employment,name='site.employment'),
     path('employ/store',employment,name='site.employment.store'),
+
 ]

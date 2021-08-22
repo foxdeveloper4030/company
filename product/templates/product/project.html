@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}
+ سفارش پروژه
+{% endblock %}
+
+{% block 'content' %}
+<div class="row" style="margin-top: 120px ; margin-bottom: 50px ">
+
+            <!-- Start Google Map -->
+            <div class="col-md-6">
+
+            </div>
+            <!-- End Google Map -->
+
+            <!-- Start  contact -->
+            <div class="col-md-6">
+              <div class="form contact-form">
+                  {% load admin_tags %}
+                <form action="{% getUrl request 'order_project' %}" method="post" role="form" class="php-email-form">
+                  <div class="form-group">
+                      {% csrf_token %}
+                    <input type="text" name="name" class="form-control" id="name" placeholder="نام پروژه" required="">
+                  </div>
+                    <div class="form-group">
+                    <input type="text" name="title" class="form-control" id="name" placeholder="عنوان پروژه" required="">
+                  </div>
+                  <div class="form-group mt-3">
+                    <textarea class="form-control" name="address" rows="5" placeholder="توضیحات پروژه" required=""></textarea>
+                  </div>
+                  <div class="form-group mt-3">
+                     <select name="type" class="form-control">
+                        <option vlaue="1">حقیقی</option>
+                        <option vlaue="2">حقوقی</option>
+                    </select>
+                  </div>
+                  <div class="form-group mt-3">
+                   <input type="text" class="form-control" name="order_by_fname" id="type" placeholder="نام" required="">
+                  </div>
+                    <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="order_by_lname" id="type" placeholder="نام خانوادگی" required="">
+                  </div>
+                    <div class="form-group mt-3">
+                    <textarea class="form-control" name="address" rows="5" placeholder="آدرس" required=""></textarea>
+                  </div>
+                    <div class="form-group mt-3">
+                        {% if error.order_by_tel %}
+                       <div class="alert alert-danger">{{ error.order_by_tel}}</div>
+                      {% endif %}
+                    <input type="text" class="form-control" name="order_by_tel" id="type" placeholder="تلفن" required="">
+                  </div>
+                    <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="website" id="type" placeholder="وب سایت" required="">
+                  </div>
+                    <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="company" id="type" placeholder="شرکت" required="">
+                  </div>
+
+                  <div class="my-3">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                  </div>
+                  <div class="text-center"><button type="submit">Send</button></div>
+                </form>
+              </div>
+            </div>
+            <!-- End Left contact -->
+          </div>
+{% endblock %}
