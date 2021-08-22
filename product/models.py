@@ -21,7 +21,7 @@ class Project(models.Model):
     address = models.CharField(max_length=250)
     order_by_tel = models.CharField(max_length=250)
     website = models.CharField(max_length=250, null=False)
-    company = models.CharField(max_length=250)
+    company = models.CharField(max_length=250,null=True)
     state = models.IntegerField(choices=state, default=0)
     created_at = models.DateTimeField(auto_created=True)
     updated_at = models.DateTimeField(auto_created=True)

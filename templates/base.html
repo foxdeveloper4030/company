@@ -88,6 +88,30 @@
 
 
   <!-- ======= Footer ======= -->
+  <!-- Modal -->
+
+{% if message %}
+<div id="message" class="modal" style="display: block" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <h4 class="modal-title">پیام سیستم</h4>
+      </div>
+      <div class="modal-body">
+        <p>{{ message.text }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="document.getElementById('message').style.display='none'">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endif %}
+
   <footer>
     <div class="footer-area">
       <div class="container">
@@ -171,7 +195,7 @@
   <script src="{% static '' %}assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="{% static '' %}assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="{% static '' %}assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="{% static '' %}assets/vendor/php-email-form/validate.js"></script>
+
   <script src="{% static '' %}assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Template Main JS File -->
