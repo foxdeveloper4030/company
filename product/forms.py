@@ -14,6 +14,7 @@ class ProjectValidations(forms.Form):
     website = forms.CharField(required=True)
     company = forms.CharField(required=True)
 
+
     def clean_order_by_tel(self):
         pattern = r"[09]{9}"
         if re.match(pattern, self.cleaned_data['order_by_tel']):
