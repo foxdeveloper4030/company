@@ -29,6 +29,7 @@ def employment(request):
     if request.method =='POST':
        if forms.EmployValidation(request.POST).is_valid():
            employ = Employment()
+
            employ.fist_name = request.POST['name']
            employ.last_name = request.POST['last_name']
            employ.email = request.POST['email']

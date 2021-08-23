@@ -15,7 +15,7 @@
 
             <!-- Start  contact -->
             <div class="col-md-6">
-              <div class="form contact-form">
+              <div class="form contact-form" style="padding: 20px;">
                   {% load admin_tags %}
                 <form action="{% getUrl request 'order_project' %}" method="post" role="form" class="php-email-form">
                   <div class="form-group">
@@ -30,8 +30,8 @@
                   </div>
                   <div class="form-group mt-3">
                      <select name="type" class="form-control">
-                        <option vlaue="1">حقیقی</option>
-                        <option vlaue="2">حقوقی</option>
+                        <option value="1">حقیقی</option>
+                        <option value="2">حقوقی</option>
                     </select>
                   </div>
                   <div class="form-group mt-3">

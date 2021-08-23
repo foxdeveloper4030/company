@@ -14,9 +14,8 @@ def show(request,id):
     release = Release.objects.get(id=id)
     return
 def order_project(request):
-
     if request.method == 'GET':
-         return render(request, 'product/project.html')
+         return render(request, 'product/product.html')
     if request.method == 'POST':
        return JsonResponse(request.POST)
        if forms.ProjectValidations(request.POST).is_valid():
