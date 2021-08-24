@@ -38,7 +38,7 @@ class File(models.Model):
     name = models.CharField(max_length=250)
     title = models.CharField(max_length=250)
     project = models.ForeignKey(Project, on_delete=True)
-    address = models.FileField(upload_to='public/files')
+    address = models.FileField(upload_to='public/files', validators=[])
 
 
 class Pay(models.Model):

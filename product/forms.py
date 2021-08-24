@@ -1,12 +1,14 @@
 import datetime
 
-from  django import forms
+from django import forms
 from django.core.exceptions import ValidationError
 from xdg.Mime import magic
 import os
 from .models import Project, File
 from datetime import time
 import re
+import hashlib
+
 
 class ProjectValidations(forms.Form):
     name = forms.CharField(required=True)
@@ -32,15 +34,11 @@ class ProjectValidations(forms.Form):
     def validate_file(self):
         class Meta:
             model = File
-            fil = os.path.splitext(self.file.name)[1]
+            file = os.path.splitext(self.cleaned_data.file.name)[-1]
             valid_extensions = ['.pdf', '.jpg', 'png']
-            if not fil.lower() in valid_extensions:
-                raise forms.ValidationError(' لطفا فایل')
-  # def clean(self):
-#     if not "pdf" in magic.form_file(self.file.url):
-#         raise forms.ValidationError("لطفا فایل را با پسوندpdf وارد کنید")
-
-
-
-# def __unicode__(self):
-#     return self.fil
+            if not file.lower() in valid_extensions:
+                raise forms.ValidationError(' لطفا فایل را اصلاح نمایید!')
+            else:
+                time = datetime.time.second.now()
+                result = hashlib.md5(time)
+                result += file
