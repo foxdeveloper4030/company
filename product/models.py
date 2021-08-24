@@ -23,8 +23,8 @@ class Project(models.Model):
     website = models.CharField(max_length=250, null=False)
     company = models.CharField(max_length=250,null=True)
     state = models.IntegerField(choices=state, default=0)
-    created_at = models.DateTimeField(auto_created=True)
-    updated_at = models.DateTimeField(auto_created=True)
+    created_at = models.DateTimeField(auto_created=True,auto_now=True)
+    updated_at = models.DateTimeField(auto_created=True,auto_now=True)
 
 
 class TimeLine(models.Model):
