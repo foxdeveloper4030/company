@@ -168,9 +168,9 @@ ul li {
     color: $black-color;
 }
 ul li:not(.init) { 
-    display:block ruby;
-    background: #fff;
-    color: blue;
+    display:block;
+    background:#fff;
+    color: black;
     padding: 5px 10px; 
 }
 ul li:not(.init):hover, ul li.selected:not(.init) { 

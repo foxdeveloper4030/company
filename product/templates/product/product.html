@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="form-input">
                                         {% if form.order_by_tel %}
-                                            <div class="alert alert-danger">{{ form.order_by_tel }}</div>
+                                            <div class="alert alert-danger">{{ form.order_by_tel.as_text }}</div>
                                        {% endif %}
                                     <label for="chequeno" class="required">تلفن</label>
                                     <input type="text" name="order_by_tel" required="required" id="chequeno" />
