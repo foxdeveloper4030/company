@@ -4,27 +4,33 @@ from django.db import models
 # Create your models here.
 
 class Category(models.Model):
-    name = models.CharField(max_length=250)
+    name = models.CharField(max_length=250, verbose_name='نام عکس')
+    def __str__(self):
+        return self.name
 
 
 class Project(models.Model):
     type = [(1, "حقیقی"), (2, "حقوقی")]
     state = [(0, 'پروژه تعریف شد'), (1, 'پروژه تایید شد'), (2, 'در حال ساخت پروژه'), (3, 'اتمام پروژه'),
              (4, 'پروژه تایید نشد')]
-    category = models.ForeignKey(Category, on_delete=False, null=True)
-    name = models.CharField(max_length=250)
-    title = models.CharField(max_length=250)
-    description = models.TextField()
-    type = models.IntegerField(choices=type, default=1)
-    order_by_fname = models.CharField(max_length=250)
-    order_by_lname = models.CharField(max_length=250)
-    address = models.CharField(max_length=250)
-    order_by_tel = models.CharField(max_length=250)
-    website = models.CharField(max_length=250, null=False)
-    company = models.CharField(max_length=250,null=True)
-    state = models.IntegerField(choices=state, default=0)
-    created_at = models.DateTimeField(auto_created=True,auto_now=True)
-    updated_at = models.DateTimeField(auto_created=True,auto_now=True)
+    category = models.ForeignKey(Category, on_delete=False, null=True, verbose_name='دسته بندی')
+    name = models.CharField(max_length=250, verbose_name='نام')
+    title = models.CharField(max_length=250 ,verbose_name='عنوان')
+    description = models.TextField(verbose_name='توضیحات')
+    type = models.IntegerField(choices=type, default=1, verbose_name='نوع مشتری')
+    order_by_fname = models.CharField(max_length=250, verbose_name='سفارش با نام')
+    order_by_lname = models.CharField(max_length=250, verbose_name='سفارش با نام خانوادگی')
+    address = models.CharField(max_length=250, verbose_name='آدرس')
+    order_by_tel = models.CharField(max_length=250, verbose_name='سفارش با تلفن')
+    website = models.CharField(max_length=250, null=False, verbose_name='وب سایت')
+    company = models.CharField(max_length=250,null=True, verbose_name='شرکت')
+    state = models.IntegerField(choices=state, default=0, verbose_name='وضعیت')
+    created_at = models.DateTimeField(auto_created=True, auto_now=True)
+    updated_at = models.DateTimeField(auto_created=True, auto_now=True)
+
+    def __str__(self):
+
+        return self.title
 
 
 class TimeLine(models.Model):
@@ -59,7 +65,9 @@ class Release(models.Model):
 
 
 class Company(models.Model):
-    name = models.CharField(max_length=250)
-    title = models.CharField(max_length=250)
-    description = models.TextField()
-    img = models.ImageField(upload_to='public/img/companies')
+    name = models.CharField(max_length=250, verbose_name='نام')
+    title = models.CharField(max_length=250, verbose_name='عنوان')
+    description = models.TextField(verbose_name='توضیحات')
+    img = models.ImageField(upload_to='public/img/companies', verbose_name='عکس')
+    def __str__(self):
+        return self.name

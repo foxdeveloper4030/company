@@ -62,9 +62,14 @@ class ServiceAdmin(admin.ModelAdmin):
     form = ModelServiceAdminForm
 
 class Employment(models.Model):
-    fist_name = models.CharField(max_length=250)
-    last_name = models.CharField(max_length=250)
-    email = models.EmailField(max_length=250,unique=True)
-    phone_number = models.CharField(max_length=250,unique=True)
-    description = models.TextField()
+    fist_name = models.CharField(max_length=250, verbose_name='نام')
+    last_name = models.CharField(max_length=250, verbose_name='نام خانوادگی')
+    email = models.EmailField(max_length=250, unique=True, verbose_name='ایمیل')
+    phone_number = models.CharField(max_length=250, unique=True, verbose_name='شماره موبایل')
+    description = models.TextField(verbose_name='توضیحات')
+    def __str__(self):
+
+        return self.fist_name
+
+
 
