@@ -168,9 +168,9 @@ ul li {
     color: $black-color;
 }
 ul li:not(.init) { 
-    display: none; 
+    display:block ruby;
     background: #fff;
-    color: $black-color;
+    color: blue;
     padding: 5px 10px; 
 }
 ul li:not(.init):hover, ul li.selected:not(.init) { 
@@ -231,7 +231,7 @@ li.init {
         &:after {
             font-family: 'Material-Design-Iconic-Font';
             color: #fff;
-            content: '\f2fb';
+                content: '\f2fb';
             left: auto;
             right: -5px;
         }

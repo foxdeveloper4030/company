@@ -20,12 +20,21 @@
                 <form action="{% getUrl request 'order_project' %}" method="POST"  enctype="multipart/form-data" role="form" class="php-email-form">
                   <div class="form-group">
                       {% csrf_token %}
+                       {% if error.name %}
+                          <div class="alert alert-danger" >{{ error.name }}</div>
+                      {% endif %}
                     <input type="text" name="name" class="form-control" id="name" placeholder="نام پروژه" required="">
                   </div>
                     <div class="form-group">
+                           {% if error.title %}
+                          <div class="alert alert-danger" >{{ error.title }}</div>
+                      {% endif %}
                     <input type="text" name="title" class="form-control" id="name" placeholder="عنوان پروژه" required="">
                   </div>
                   <div class="form-group mt-3">
+                         {% if error.address %}
+                          <div class="alert alert-danger" >{{ error.address }}</div>
+                      {% endif %}
                     <textarea class="form-control" name="address" rows="5" placeholder="توضیحات پروژه" required=""></textarea>
                   </div>
                   <div class="form-group mt-3">
@@ -34,13 +43,23 @@
                         <option value="2">حقوقی</option>
                     </select>
                   </div>
+
                   <div class="form-group mt-3">
+                        {% if error.order_by_fname %}
+                          <div class="alert alert-danger" >{{ error.order_by_fname }}</div>
+                      {% endif %}
                    <input type="text" class="form-control" name="order_by_fname" id="type" placeholder="نام" required="">
                   </div>
                     <div class="form-group mt-3">
+                         {% if error.order_by_lname %}
+                          <div class="alert alert-danger" >{{ error.order_by_lname }}</div>
+                      {% endif %}
                     <input type="text" class="form-control" name="order_by_lname" id="type" placeholder="نام خانوادگی" required="">
                   </div>
                     <div class="form-group mt-3">
+                          {% if error.address %}
+                          <div class="alert alert-danger" >{{ error.address }}</div>
+                      {% endif %}
                     <textarea class="form-control" name="address" rows="5" placeholder="آدرس" required=""></textarea>
                   </div>
                     <div class="form-group mt-3">
@@ -57,6 +76,9 @@
                   </div>
 
                  <div class="form-group mt-3">
+                      {% if error.fileUpload %}
+                          <div class="alert alert-danger" >{{ error.fileUpload }}</div>
+                      {% endif %}
                     <input type="file" class="form-control" name="fileUpload" id="type" placeholder="" required="">
                   </div>
 

@@ -42,10 +42,16 @@
                         {% endif %}
 
                                 <div class="form-input">
+                                     {% if form.name %}
+                                         <div class="alert alert-danger" >{{ form.name }}</div>
+                                      {% endif %}
                                     <label for="payable" class="required" >نام پروژه</label>
                                     <input type="text" name="name" required="required" id="payable" />
                                 </div>
                                 <div class="form-input">
+                                      {% if form.title %}
+                                         <div class="alert alert-danger" >{{ form.title }}</div>
+                                     {% endif %}
                                     <label for="last_name" class="required">عنوان پروژه</label>
                                     <input type="text" required="required" name="title" id="last_name" />
                                 </div>
@@ -54,14 +60,23 @@
                                     <textarea type="texte" required="required"   name=" description" id="company" style="width: 380px"></textarea>
                                 </div>
                                 <div class="form-input">
+                                     {% if form.order_by_fname %}
+                                      <div class="alert alert-danger" >{{ form.order_by_fname }}</div>
+                                     {% endif %}
                                     <label for="email" class="required">نام</label>
                                     <input type="text"  required="required"  name="order_by_fname" id="email" />
                                 </div>
                                 <div class="form-input">
+                                       {% if form.order_by_lname %}
+                                          <div class="alert alert-danger" >{{ form.order_by_lname }}</div>
+                                        {% endif %}
                                     <label for="phone_number" class="required">نام خانوادگی</label>
                                     <input type="text"  required="required"  name="order_by_lname" id="phone_number" />
                                 </div>
                                  <div class="form-input">
+                                        {% if form.address %}
+                                   <div class="alert alert-danger" >{{ form.address }}</div>
+                                         {% endif %}
                                     <label for="phone_number" class="required">آدرس</label>
                                      <textarea type="text"  required="required"  name="address" id="phone_number" style="width: 380px"></textarea>
                                 </div>
@@ -86,7 +101,7 @@
                                 <div class="form-radio">
                                 </div>
                                 <div class="form-input">
-                                        {% if form %}
+                                        {% if form.order_by_tel %}
                                             <div class="alert alert-danger">{{ form.order_by_tel }}</div>
                                        {% endif %}
                                     <label for="chequeno" class="required">تلفن</label>
