@@ -1,7 +1,7 @@
 from django.http import HttpRequest
 from django import template
 from django.urls import reverse
-from home import models
+
 
 register = template.Library()
 
@@ -15,7 +15,3 @@ def getUrl(request, name=None):
         return type + request.META['HTTP_HOST']
 
 
-@register.simple_tag
-def social():
-    social = models.Social.objects.all()
-    return social

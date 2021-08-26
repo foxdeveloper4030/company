@@ -117,19 +117,14 @@
                 <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
                 <div class="footer-icons">
                   <ul>
-
-{#                      <li>#}
-{#                          <a href='https://wa.me/09130660659' target='_blank'><i class= "fa fa-whatsapp"></i></a>#}
-{#                      </li>#}
-{#                    <li>#}
-{#                      <a href="https://wa.me/09130660659"><i class="bi bi-twitter"></i></a>#}
-{#                    </li>#}
-{#                    <li>#}
-{#                      <a href="https://www.instagram.com/azar.jalilp"><i class="bi bi-instagram"></i></a>#}
-{#                    </li>#}
-{#                    <li>#}
-{#                      <a href="#"><i class="bi bi-linkedin"></i></a>#}
-{#                    </li>#}
+                      {% load home_tags %}
+                      {% load admin_tags %}
+                      {% social as socials %}
+                    {% for social in socials %}
+                      <li>
+                          <a href="{{ social.link }}" target='_blank'><img src="{% getUrl request %}/{{ social.img }}" ></a>
+                      </li>
+                    {% endfor %}
                   </ul>
                 </div>
               </div>

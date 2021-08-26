@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from django.conf import settings
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'product',
-    'templates.tags',
-    'django_social_share'
+
+
 
 ]
 
@@ -69,7 +71,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
             ],
-            'libraries':{'admin_tags':'templates.tags'}
+            'libraries':{'admin_tags':'templates.tags','home_tags':'home.tags'}
         },
     },
 ]
