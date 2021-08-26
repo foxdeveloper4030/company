@@ -16,7 +16,6 @@ class Slider(models.Model):
 class About(models.Model):
     Text = models.TextField()
 
-
 class MyModelAdminForm(forms.ModelForm):
     class Meta:
         widgets = {
@@ -51,6 +50,8 @@ class ModelServiceAdminForm(forms.ModelForm):
         widgets = {
             'description': forms.Textarea(attrs={'id': 'Text'})
         }
+
+
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
     class Media:
@@ -61,15 +62,18 @@ class ServiceAdmin(admin.ModelAdmin):
 
     form = ModelServiceAdminForm
 
+
 class Employment(models.Model):
     fist_name = models.CharField(max_length=250, verbose_name='نام')
     last_name = models.CharField(max_length=250, verbose_name='نام خانوادگی')
     email = models.EmailField(max_length=250, unique=True, verbose_name='ایمیل')
     phone_number = models.CharField(max_length=250, unique=True, verbose_name='شماره موبایل')
     description = models.TextField(verbose_name='توضیحات')
-    def __str__(self):
 
+    def __str__(self):
         return self.fist_name
 
 
-
+class Social(models.Model):
+    img = models.ImageField(upload_to='public/img/social')
+    link = models.CharField(max_length=250)
