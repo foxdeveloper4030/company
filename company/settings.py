@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'product',
-    'templates.tags'
+    'templates.tags',
+    'django_social_share'
+
 ]
 
 MIDDLEWARE = [
