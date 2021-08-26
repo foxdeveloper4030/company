@@ -12,6 +12,9 @@ class Slider(models.Model):
     alt = models.CharField(max_length=250)
     link = models.CharField(max_length=250)
 
+    def __str__(self):
+        return self.name
+
 
 class About(models.Model):
     Text = models.TextField()
@@ -38,12 +41,13 @@ class Gallery(models.Model):
     img = models.ImageField(upload_to='public/img/galleries')
     name = models.CharField(max_length=250)
 
-
 class Service(models.Model):
     img = models.ImageField(upload_to='public/img/services')
     title = models.CharField(max_length=250)
     description = models.TextField(max_length=250)
 
+    def __str__(self):
+        return self.title
 
 class ModelServiceAdminForm(forms.ModelForm):
     class Meta:

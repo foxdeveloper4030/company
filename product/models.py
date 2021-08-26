@@ -1,10 +1,12 @@
 from django.db import models
-
-
+from django.contrib import admin
 # Create your models here.
+
+
 
 class Category(models.Model):
     name = models.CharField(max_length=250, verbose_name='نام عکس')
+
     def __str__(self):
         return self.name
 
@@ -15,7 +17,7 @@ class Project(models.Model):
              (4, 'پروژه تایید نشد')]
     category = models.ForeignKey(Category, on_delete=False, null=True, verbose_name='دسته بندی')
     name = models.CharField(max_length=250, verbose_name='نام')
-    title = models.CharField(max_length=250 ,verbose_name='عنوان')
+    title = models.CharField(max_length=250, verbose_name='عنوان')
     description = models.TextField(verbose_name='توضیحات')
     type = models.IntegerField(choices=type, default=1, verbose_name='نوع مشتری')
     order_by_fname = models.CharField(max_length=250, verbose_name='سفارش با نام')
@@ -23,14 +25,18 @@ class Project(models.Model):
     address = models.CharField(max_length=250, verbose_name='آدرس')
     order_by_tel = models.CharField(max_length=250, verbose_name='سفارش با تلفن')
     website = models.CharField(max_length=250, null=False, verbose_name='وب سایت')
-    company = models.CharField(max_length=250,null=True, verbose_name='شرکت')
+    company = models.CharField(max_length=250, null=True, verbose_name='شرکت')
     state = models.IntegerField(choices=state, default=0, verbose_name='وضعیت')
     created_at = models.DateTimeField(auto_created=True, auto_now=True)
     updated_at = models.DateTimeField(auto_created=True, auto_now=True)
 
     def __str__(self):
+        return self.name
 
-        return self.title
+
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ('name', 'title',)
 
 
 class TimeLine(models.Model):
@@ -45,6 +51,9 @@ class File(models.Model):
     title = models.CharField(max_length=250)
     project = models.ForeignKey(Project, on_delete=True)
     address = models.FileField(upload_to='public/files', validators=[])
+
+    def __str__(self):
+        return self.title
 
 
 class Pay(models.Model):
@@ -69,5 +78,6 @@ class Company(models.Model):
     title = models.CharField(max_length=250, verbose_name='عنوان')
     description = models.TextField(verbose_name='توضیحات')
     img = models.ImageField(upload_to='public/img/companies', verbose_name='عکس')
+
     def __str__(self):
         return self.name

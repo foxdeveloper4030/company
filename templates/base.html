@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+   {% load admin_tags %}
+  <base href="{% getUrl request  %}/">
   <title>
       {% block 'title' %}
       {% endblock %}
@@ -50,25 +51,10 @@
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="{% static '' %}img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
+    {% block 'nav' %}
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">خانه</a></li>
-          <li><a class="nav-link scrollto" href="#about">درباره ما</a></li>
-          <li><a class="nav-link scrollto" href="#services">خدمات</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">نمونه کارها</a></li>
+    {% endblock %}
 
-          <li class="dropdown"><a href="#"><span>سایر خدمات </span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="employ/#">  استخدام </a></li>
-              <li><a href="products/project">سفارش پروژه</a></li>
-
-            </ul>
-          </li>
-
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->

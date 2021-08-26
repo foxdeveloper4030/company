@@ -14,6 +14,8 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="{% static '' %}assets/project-form/css/style.css">
+     {% load admin_tags %}
+  <base href="{% getUrl request  %}/">
 </head>
 <body style="direction: rtl">
 
@@ -123,11 +125,18 @@
                                 </div>
 {% csrf_token %}
 
-                        <div class="form-submit">
-                                <input type="submit" value="SEND" class="submit" id="submit" name="submit" />
+                            <div class="form-submit">
+                                <input type="submit" value="ارسال" class="submit" id="submit" name="submit" />
                         </div>
+
+
+
+
                     </form>
                 </div>
+                                      <a href="#hero">
+      <input type="submit"/>
+     </a>
             </div>
                 </div>
 
