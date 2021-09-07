@@ -36,7 +36,6 @@ def upload_file(file, name):
 
 def order_project(request):
     if request.method == 'GET':
-
         return render(request, 'product/product.html',)
     if request.method == 'POST':
 
@@ -71,5 +70,5 @@ def order_project(request):
 
         else:
 
-            return render(request, 'product/product.html', {'form': forms.ProjectValidations(request.POST).errors,
+            return render(request, 'product/product.html', {'form': forms.ProjectValidations(request.POST,request.FILES).errors,
                                                             'message': {'text': "لطفا خطا های زیر را برطرف کنید."}})

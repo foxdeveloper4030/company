@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib import admin
 # Create your models here.
-
+from django.core.validators import RegexValidator
+from django.core.validators import FileExtensionValidator
 
 
 class Category(models.Model):
@@ -50,7 +51,7 @@ class File(models.Model):
     name = models.CharField(max_length=250)
     title = models.CharField(max_length=250)
     project = models.ForeignKey(Project, on_delete=True)
-    address = models.FileField(upload_to='public/files', validators=[])
+    address = models.FileField(upload_to='public/files')
 
     def __str__(self):
         return self.title

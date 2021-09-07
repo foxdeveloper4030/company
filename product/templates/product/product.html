@@ -120,6 +120,9 @@
                             </div>
                         </div>
                          <div class="form-input">
+                                {% if form.file %}
+                                            <div class="alert alert-danger">{{ form.file.as_text }}</div>
+                                       {% endif %}
                                     <label for="blank_name">بارگزاری فایل</label>
                                     <input type="file" name="file" id="blank_name" />
                                 </div>
@@ -134,9 +137,9 @@
 
                     </form>
                 </div>
-                                      <a href="#hero">
-      <input type="submit"/>
-     </a>
+                        <a href="#hero" style="margin-top: 30px">
+                            <input type="submit" value="بازگشت به خانه"/>
+                     </a>
             </div>
                 </div>
 

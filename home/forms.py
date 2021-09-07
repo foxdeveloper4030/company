@@ -16,8 +16,8 @@ class EmployValidation(forms.Form):
                 raise forms.ValidationError("این ایمیل قبلا ثبت شده است!")
 
     def clean_tel(self):
-        pattern = r"[09]{9}"
-        if re.match(pattern,self.cleaned_data['tel']):
+        reg = re.compile('[0-9]{11}$')
+        if reg.match(self.cleaned_data['tel']) is None:
             raise forms.ValidationError("تلفن اشتباه است.")
         for employ in Employment.objects.filter(phone_number=self.cleaned_data['tel']):
             if self.cleaned_data['tel'] == employ.phone_number:
